@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bee Appliances | Quality Home Appliances JHB</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            beeYellow: '#FFD400',
+            beeBlack: '#0B0B0B',
+            beeDark: '#1A1A1A'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .product-card:hover img { transform: scale(1.05); }
+    .cart-bump { animation: bump 0.3s ease-out; }
+    @keyframes bump {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+    #cart-sidebar, #mobile-menu { transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+    /* Hide scrollbar but keep functionality */
+    #cart-items::-webkit-scrollbar { width: 4px; }
+    #cart-items::-webkit-scrollbar-thumb { background: #FFD400; border-radius: 10px; }
+  </style>
+</head>
+<body class="bg-slate-50 text-gray-900 font-sans overflow-x-hidden">
+
+  <a href="https://wa.me/27637723987" target="_blank" class="fixed bottom-6 right-6 z-[60] bg-[#25D366] text-white w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform">
+    <i class="fab fa-whatsapp text-3xl"></i>
+    <span class="absolute -top-1 -left-1 flex h-4 w-4">
+      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+      <span class="relative inline-flex rounded-full h-4 w-4 bg-green-500 border-2 border-white"></span>
+    </span>
+  </a>
+
+  <header class="bg-black border-b border-beeYellow/20 sticky top-0 z-50 text-white backdrop-blur-md bg-opacity-95">
+    <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+      <a href="#" class="flex items-center gap-2">
+        <span class="text-3xl">🐝</span>
+        <h1 class="text-xl md:text-2xl font-black tracking-tighter text-beeYellow uppercase">Bee Appliances</h1>
+      </a>
+
+      <nav class="space-x-8 hidden md:flex font-medium text-sm uppercase tracking-widest">
+        <a href="#" class="hover:text-beeYellow transition-colors">Home</a>
+        <a href="#products" class="hover:text-beeYellow transition-colors">Shop</a>
+        <a href="#about" class="hover:text-beeYellow transition-colors">About</a>
+        <a href="#contact" class="hover:text-beeYellow transition-colors">Contact</a>
+      </nav>
+
+      <div class="flex items-center gap-4">
+        <button onclick="toggleCart()" class="relative bg-beeYellow text-black px-4 py-2 rounded-full font-bold hover:bg-white transition-all flex items-center gap-2" id="cart-btn">
+          <i class="fas fa-shopping-cart text-sm"></i>
+          <span id="cart-count" class="bg-black text-white text-[10px] px-1.5 py-0.5 rounded-full">0</span>
+        </button>
+        <button onclick="toggleMenu()" class="md:hidden text-beeYellow text-2xl"><i class="fas fa-bars"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <div id="mobile-menu" class="fixed inset-0 bg-beeBlack z-[70] translate-x-full flex flex-col items-center justify-center space-y-8 text-white text-2xl font-bold">
+    <button onclick="toggleMenu()" class="absolute top-6 right-6 text-beeYellow"><i class="fas fa-times"></i></button>
+    <a href="#" onclick="toggleMenu()">Home</a>
+    <a href="#products" onclick="toggleMenu()">Shop</a>
+    <a href="#about" onclick="toggleMenu()">About</a>
+    <a href="#contact" onclick="toggleMenu()">Contact</a>
+  </div>
+
+  <div id="cart-overlay" onclick="toggleCart()" class="fixed inset-0 bg-black/50 z-[80] hidden backdrop-blur-sm"></div>
+  <div id="cart-sidebar" class="fixed top-0 right-0 h-full w-full max-w-sm bg-white z-[90] translate-x-full shadow-2xl flex flex-col">
+    <div class="p-6 border-b flex justify-between items-center bg-beeBlack text-white shadow-lg">
+      <h2 class="text-xl font-black uppercase tracking-tight">Your Basket</h2>
+      <button onclick="toggleCart()" class="text-beeYellow text-3xl hover:rotate-90 transition-transform">&times;</button>
+    </div>
+    <div id="cart-items" class="flex-1 overflow-y-auto p-4 space-y-4">
+      <div class="text-center py-20">
+        <span class="text-5xl block mb-4">🛒</span>
+        <p class="text-gray-400">Your hive is empty!</p>
+      </div>
+    </div>
+    <div class="p-6 border-t bg-gray-50">
+      <div class="flex justify-between mb-4 font-black text-xl italic uppercase">
+        <span>Total:</span>
+        <span id="cart-total" class="text-beeBlack">R0</span>
+      </div>
+      <button onclick="checkout()" class="w-full bg-beeYellow text-black font-black py-4 rounded-xl uppercase hover:bg-black hover:text-white transition-all shadow-lg">Checkout via WhatsApp</button>
+    </div>
+  </div>
+
+  <section class="bg-white py-16 md:py-28 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+      <div class="z-10 text-center md:text-left">
+        <h2 class="text-5xl md:text-7xl font-black mb-6 leading-[1.1]">The Best Deals <br><span class="text-beeYellow underline decoration-black underline-offset-8">Under One Roof.</span></h2>
+        <p class="text-lg text-gray-600 mb-8 max-w-md mx-auto md:mx-0">Quality-tested, showroom-ready appliances at Crown Mines outlet prices. We deliver nationwide.</p>
+        <a href="#products" class="inline-block bg-black text-white px-10 py-4 rounded-2xl font-black hover:bg-beeYellow hover:text-black transition-all shadow-xl">Start Shopping</a>
+      </div>
+      <div class="relative group">
+        <div class="absolute -inset-4 bg-beeYellow/30 blur-3xl rounded-full opacity-50 group-hover:opacity-100 transition-opacity"></div>
+        <img src="https://images.unsplash.com/photo-1581579185169-1cfd1c6b44b3" class="relative rounded-[2.5rem] shadow-2xl w-full h-[450px] object-cover border-8 border-white">
+      </div>
+    </div>
+  </section>
+
+  <section id="products" class="max-w-7xl mx-auto px-6 pt-20">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
+      <div>
+        <h3 class="text-3xl font-black border-l-8 border-beeYellow pl-4 uppercase tracking-tighter">Current Stock</h3>
+        <p class="text-gray-500 mt-2 ml-6">Filter by appliance type</p>
+      </div>
+      
+      <div class="flex flex-wrap gap-2" id="category-container">
+        <button onclick="filterProducts('all', this)" class="category-btn active bg-beeYellow text-black px-6 py-2 rounded-full font-bold text-sm uppercase transition-all shadow-md">All</button>
+        <button onclick="filterProducts('washing', this)" class="category-btn bg-white border border-gray-200 text-gray-600 px-6 py-2 rounded-full font-bold text-sm uppercase hover:border-beeYellow transition-all">Washing</button>
+        <button onclick="filterProducts('fridge', this)" class="category-btn bg-white border border-gray-200 text-gray-600 px-6 py-2 rounded-full font-bold text-sm uppercase hover:border-beeYellow transition-all">Refrigeration</button>
+        <button onclick="filterProducts('cooking', this)" class="category-btn bg-white border border-gray-200 text-gray-600 px-6 py-2 rounded-full font-bold text-sm uppercase hover:border-beeYellow transition-all">Cooking</button>
+        <button onclick="filterProducts('small', this)" class="category-btn bg-white border border-gray-200 text-gray-600 px-6 py-2 rounded-full font-bold text-sm uppercase hover:border-beeYellow transition-all">Small Appliances</button>
+      </div>
+    </div>
+
+    <div class="mb-10 relative max-w-2xl mx-auto">
+      <div class="relative group">
+        <input 
+          type="text" 
+          id="product-search" 
+          onkeyup="filterProducts()" 
+          placeholder="Search for brands or appliances (e.g. LG, Fridge)..." 
+          class="w-full p-5 pl-14 rounded-2xl bg-white border-2 border-gray-100 outline-none focus:border-beeYellow focus:ring-4 focus:ring-beeYellow/10 transition-all shadow-sm text-lg"
+        >
+        <i class="fas fa-search absolute left-6 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-beeYellow transition-colors"></i>
+      </div>
+    </div>
+    <div id="product-grid" class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      
+      <div class="product-item bg-white rounded-3xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-2xl transition-all group" data-category="washing">
+        <div class="h-60 overflow-hidden relative">
+          <img src="1.jpg" id="img-1" class="w-full h-full object-cover transition-transform group-hover:scale-110">
+          <div class="absolute top-4 right-4 bg-black text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase">Washing Machine</div>
+        </div>
+        <div class="p-6">
+          <h4 class="font-bold text-gray-800 text-lg">LG Front Loader</h4>
+          <p class="text-beeYellow font-black text-2xl my-2 italic">R9,500</p>
+          <button onclick="addToCart('LG Front Loader', 9500, '1.jpg')" class="w-full bg-beeYellow text-black py-4 rounded-2xl font-black hover:bg-black hover:text-white transition-all uppercase text-sm tracking-wider">Add To Cart</button>
+        </div>
+      </div>
+
+      <div class="product-item bg-white rounded-3xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-2xl transition-all group" data-category="fridge">
+        <div class="h-60 overflow-hidden relative">
+          <img src="2.jpg" id="img-2" class="w-full h-full object-cover transition-transform group-hover:scale-110">
+          <div class="absolute top-4 right-4 bg-black text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase">Fridge</div>
+        </div>
+        <div class="p-6">
+          <h4 class="font-bold text-gray-800 text-lg">Samsung Double Door</h4>
+          <p class="text-beeYellow font-black text-2xl my-2 italic">R6,999</p>
+          <button onclick="addToCart('Samsung Double Door', 6999, '2.jpg')" class="w-full bg-beeYellow text-black py-4 rounded-2xl font-black hover:bg-black hover:text-white transition-all uppercase text-sm tracking-wider">Add To Cart</button>
+        </div>
+      </div>
+
+      <div class="product-item bg-white rounded-3xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-2xl transition-all group" data-category="small">
+        <div class="h-60 overflow-hidden relative">
+          <img src="3.jpg" id="img-3" class="w-full h-full object-cover transition-transform group-hover:scale-110">
+          <div class="absolute top-4 right-4 bg-black text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase">Small App</div>
+        </div>
+        <div class="p-6">
+          <h4 class="font-bold text-gray-800 text-lg">Digital Microwave</h4>
+          <p class="text-beeYellow font-black text-2xl my-2 italic">R2,500</p>
+          <button onclick="addToCart('Digital Microwave', 2500, '3.jpg')" class="w-full bg-beeYellow text-black py-4 rounded-2xl font-black hover:bg-black hover:text-white transition-all uppercase text-sm tracking-wider">Add To Cart</button>
+        </div>
+      </div>
+
+      <div class="product-item bg-white rounded-3xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-2xl transition-all group" data-category="cooking">
+        <div class="h-60 overflow-hidden relative">
+          <img src="4.jpg" id="img-4" class="w-full h-full object-cover transition-transform group-hover:scale-110">
+          <div class="absolute top-4 right-4 bg-black text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase">Stove</div>
+        </div>
+        <div class="p-6">
+          <h4 class="font-bold text-gray-800 text-lg">4-Plate Electric Stove</h4>
+          <p class="text-beeYellow font-black text-2xl my-2 italic">R4,800</p>
+          <button onclick="addToCart('4-Plate Electric Stove', 4800, '4.jpg')" class="w-full bg-beeYellow text-black py-4 rounded-2xl font-black hover:bg-black hover:text-white transition-all uppercase text-sm tracking-wider">Add To Cart</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="contact" class="bg-beeBlack text-white py-24 relative">
+    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16">
+      <div>
+        <h3 class="text-4xl font-black text-beeYellow mb-6 italic uppercase underline decoration-white underline-offset-8">Visit Us</h3>
+        <p class="mb-10 text-gray-400 text-lg">Visit our "Hive" in Johannesburg to see our wide range of premium appliances in person. Quality is guaranteed.</p>
+        <div class="space-y-6">
+          <div class="flex items-center gap-5 p-4 bg-white/5 rounded-2xl">
+            <i class="fas fa-map-marker-alt text-beeYellow text-2xl"></i>
+            <span>9 Stella Business Park, Crown Mines, JHB</span>
+          </div>
+          <div class="flex items-center gap-5 p-4 bg-white/5 rounded-2xl">
+            <i class="fas fa-phone text-beeYellow text-2xl"></i>
+            <span>+27 63 772 3987</span>
+          </div>
+        </div>
+      </div>
+      <form class="space-y-4 bg-white/5 p-8 rounded-[2rem] border border-white/10 shadow-2xl">
+        <input type="text" placeholder="Your Name" class="w-full p-5 rounded-2xl bg-white text-black outline-none border-4 border-transparent focus:border-beeYellow transition-all">
+        <input type="email" placeholder="Email Address" class="w-full p-5 rounded-2xl bg-white text-black outline-none border-4 border-transparent focus:border-beeYellow transition-all">
+        <textarea placeholder="Tell us what you are looking for..." rows="4" class="w-full p-5 rounded-2xl bg-white text-black outline-none border-4 border-transparent focus:border-beeYellow transition-all"></textarea>
+        <button type="button" class="w-full bg-beeYellow text-black font-black py-5 rounded-2xl hover:scale-[1.02] active:scale-95 transition-all uppercase tracking-widest shadow-lg">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="bg-black py-12 border-t border-white/10 text-center">
+    <p class="text-beeYellow font-black text-xl mb-4 uppercase">Bee Appliances 🐝</p>
+    <p class="text-gray-500 text-sm italic">&copy; 2026 Quality Tested Appliances. Johannesburg, South Africa.</p>
+  </footer>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
