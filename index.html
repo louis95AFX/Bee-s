@@ -32,6 +32,25 @@
     /* Hide scrollbar but keep functionality */
     #cart-items::-webkit-scrollbar { width: 4px; }
     #cart-items::-webkit-scrollbar-thumb { background: #FFD400; border-radius: 10px; }
+
+    .flying-bee {
+  position: fixed;
+  z-index: 9999;
+  font-size: 24px;
+  pointer-events: none;
+  transition: all 0.8s cubic-bezier(0.45, 0.05, 0.55, 0.95);
+  filter: drop-shadow(0 5px 10px rgba(0,0,0,0.2));
+}
+
+/* Make the bee wobble/flutter while flying */
+@keyframes flutter {
+  0%, 100% { transform: translateY(0) rotate(10deg); }
+  50% { transform: translateY(-5px) rotate(-10deg); }
+}
+
+.bee-animation {
+  animation: flutter 0.1s infinite;
+}
   </style>
 </head>
 <body class="bg-slate-50 text-gray-900 font-sans overflow-x-hidden">
@@ -166,7 +185,7 @@
         <div class="p-6">
           <h4 class="font-bold text-gray-800 text-lg">LG Front Loader</h4>
           <p class="text-beeYellow font-black text-2xl my-2 italic">R9,500</p>
-          <button onclick="addToCart('LG Front Loader', 9500, '1.jpg')" class="w-full bg-beeYellow text-black py-4 rounded-2xl font-black hover:bg-black hover:text-white transition-all uppercase text-sm tracking-wider">Add To Cart</button>
+          <button onclick="addToCart('LG Front Loader', 9500, '1.jpg', event )" class="w-full bg-beeYellow text-black py-4 rounded-2xl font-black hover:bg-black hover:text-white transition-all uppercase text-sm tracking-wider">Add To Cart</button>
         </div>
       </div>
     
@@ -181,7 +200,7 @@
         <div class="p-6">
           <h4 class="font-bold text-gray-800 text-lg">Samsung Double Door</h4>
           <p class="text-beeYellow font-black text-2xl my-2 italic">R6,999</p>
-          <button onclick="addToCart('Samsung Double Door', 6999, '2.jpg')" class="w-full bg-beeYellow text-black py-4 rounded-2xl font-black hover:bg-black hover:text-white transition-all uppercase text-sm tracking-wider">Add To Cart</button>
+          <button onclick="addToCart('Samsung Double Door', 6999, '2.jpg', event )" class="w-full bg-beeYellow text-black py-4 rounded-2xl font-black hover:bg-black hover:text-white transition-all uppercase text-sm tracking-wider">Add To Cart</button>
         </div>
       </div>
     
@@ -196,7 +215,7 @@
         <div class="p-6">
           <h4 class="font-bold text-gray-800 text-lg">Samsung Front loader</h4>
           <p class="text-beeYellow font-black text-2xl my-2 italic">R2,500</p>
-          <button onclick="addToCart('Samsung Front Loader', 2500, '3.jpg')" class="w-full bg-beeYellow text-black py-4 rounded-2xl font-black hover:bg-black hover:text-white transition-all uppercase text-sm tracking-wider">Add To Cart</button>
+          <button onclick="addToCart('Samsung Front Loader', 2500, '3.jpg', event)" class="w-full bg-beeYellow text-black py-4 rounded-2xl font-black hover:bg-black hover:text-white transition-all uppercase text-sm tracking-wider">Add To Cart</button>
         </div>
       </div>
     
@@ -211,7 +230,7 @@
         <div class="p-6">
           <h4 class="font-bold text-gray-800 text-lg">Double door fridge</h4>
           <p class="text-beeYellow font-black text-2xl my-2 italic">R4,800</p>
-          <button onclick="addToCart('Double door fridge', 4800, '4.jpg')" class="w-full bg-beeYellow text-black py-4 rounded-2xl font-black hover:bg-black hover:text-white transition-all uppercase text-sm tracking-wider">Add To Cart</button>
+          <button onclick="addToCart('Double door fridge', 4800, '4.jpg', event)" class="w-full bg-beeYellow text-black py-4 rounded-2xl font-black hover:bg-black hover:text-white transition-all uppercase text-sm tracking-wider">Add To Cart</button>
         </div>
       </div>
     

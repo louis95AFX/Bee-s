@@ -9,18 +9,47 @@ function toggleCart() {
   document.getElementById('cart-overlay').classList.toggle('hidden');
 }
 
-function addToCart(name, price, img) {
+function addToCart(name, price, img, event) {
+  // 1. Existing Logic: Add to array and update UI
   cart.push({ name, price, img });
   updateCartUI();
+
+  // 2. Creative Logic: Create the Bee
+  const bee = document.createElement('div');
+  bee.className = 'flying-bee bee-animation';
+  bee.innerHTML = '🐝';
   
-  const btn = document.getElementById('cart-btn');
-  btn.classList.add('cart-bump');
-  setTimeout(() => btn.classList.remove('cart-bump'), 300);
+  // Get starting position (where you clicked)
+  const startX = event.clientX;
+  const startY = event.clientY;
+  
+  bee.style.left = `${startX}px`;
+  bee.style.top = `${startY}px`;
+  document.body.appendChild(bee);
 
-  // Auto-open cart briefly to show addition (optional, but good UX)
-  // toggleCart(); 
+  // 3. Get Target position (The Cart Button)
+  const cartBtn = document.getElementById('cart-btn');
+  const rect = cartBtn.getBoundingClientRect();
+  const targetX = rect.left + (rect.width / 2);
+  const targetY = rect.top + (rect.height / 2);
+
+  // 4. Trigger Flight
+  // Small timeout to ensure the browser registers the starting position
+  setTimeout(() => {
+    bee.style.left = `${targetX}px`;
+    bee.style.top = `${targetY}px`;
+    bee.style.transform = 'scale(0.5) rotate(20deg)';
+    bee.style.opacity = '0.5';
+  }, 50);
+
+  // 5. Landing and Cleanup
+  setTimeout(() => {
+    bee.remove();
+    // Visual "Bump" feedback on the cart
+    cartBtn.classList.add('cart-bump');
+    setTimeout(() => cartBtn.classList.remove('cart-bump'), 300);
+  }, 850);
 }
-
 function updateCartUI() {
   const itemsContainer = document.getElementById('cart-items');
   const countDisplay = document.getElementById('cart-count');
