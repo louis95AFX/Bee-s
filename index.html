@@ -156,9 +156,12 @@
     <div id="product-grid" class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
       
       <div class="product-item bg-white rounded-3xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-2xl transition-all group" data-category="washing">
-        <div class="h-60 overflow-hidden relative">
-          <img src="1.jpg" id="img-1" class="w-full h-full object-cover transition-transform group-hover:scale-110">
+        <div class="h-60 overflow-hidden relative cursor-zoom-in" onclick="openPreview('LG Front Loader', 9500, '1.jpg', 'High-efficiency 9kg front loader with steam technology and 10-year inverter warranty. Perfect for large families and energy saving.', 'Washing')">
+          <img src="1.jpg" class="w-full h-full object-cover transition-transform group-hover:scale-110">
           <div class="absolute top-4 right-4 bg-black text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase">Washing Machine</div>
+          <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity">
+              <span class="bg-white text-black px-4 py-2 rounded-full text-xs font-bold uppercase shadow-xl">Quick View</span>
+          </div>
         </div>
         <div class="p-6">
           <h4 class="font-bold text-gray-800 text-lg">LG Front Loader</h4>
@@ -166,11 +169,14 @@
           <button onclick="addToCart('LG Front Loader', 9500, '1.jpg')" class="w-full bg-beeYellow text-black py-4 rounded-2xl font-black hover:bg-black hover:text-white transition-all uppercase text-sm tracking-wider">Add To Cart</button>
         </div>
       </div>
-
+    
       <div class="product-item bg-white rounded-3xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-2xl transition-all group" data-category="fridge">
-        <div class="h-60 overflow-hidden relative">
+        <div class="h-60 overflow-hidden relative cursor-zoom-in" onclick="openPreview('Samsung Double Door', 6999, '2.jpg', 'Sleek silver finish double door refrigerator with multi-flow cooling and adjustable tempered glass shelves. High energy efficiency rating.', 'Refrigeration')">
           <img src="2.jpg" id="img-2" class="w-full h-full object-cover transition-transform group-hover:scale-110">
           <div class="absolute top-4 right-4 bg-black text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase">Fridge</div>
+          <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity">
+              <span class="bg-white text-black px-4 py-2 rounded-full text-xs font-bold uppercase shadow-xl">Quick View</span>
+          </div>
         </div>
         <div class="p-6">
           <h4 class="font-bold text-gray-800 text-lg">Samsung Double Door</h4>
@@ -178,11 +184,14 @@
           <button onclick="addToCart('Samsung Double Door', 6999, '2.jpg')" class="w-full bg-beeYellow text-black py-4 rounded-2xl font-black hover:bg-black hover:text-white transition-all uppercase text-sm tracking-wider">Add To Cart</button>
         </div>
       </div>
-
+    
       <div class="product-item bg-white rounded-3xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-2xl transition-all group" data-category="small">
-        <div class="h-60 overflow-hidden relative">
+        <div class="h-60 overflow-hidden relative cursor-zoom-in" onclick="openPreview('Samsung Front Loader', 2500, '3.jpg', 'Compact and powerful front loader featuring EcoBubble technology. Ideal for apartments and small laundry spaces.', 'Washing')">
           <img src="3.jpg" id="img-3" class="w-full h-full object-cover transition-transform group-hover:scale-110">
-          <div class="absolute top-4 right-4 bg-black text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase">Small App</div>
+          <div class="absolute top-4 right-4 bg-black text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase">Washing Machine</div>
+          <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity">
+              <span class="bg-white text-black px-4 py-2 rounded-full text-xs font-bold uppercase shadow-xl">Quick View</span>
+          </div>
         </div>
         <div class="p-6">
           <h4 class="font-bold text-gray-800 text-lg">Samsung Front loader</h4>
@@ -190,11 +199,14 @@
           <button onclick="addToCart('Samsung Front Loader', 2500, '3.jpg')" class="w-full bg-beeYellow text-black py-4 rounded-2xl font-black hover:bg-black hover:text-white transition-all uppercase text-sm tracking-wider">Add To Cart</button>
         </div>
       </div>
-
+    
       <div class="product-item bg-white rounded-3xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-2xl transition-all group" data-category="cooking">
-        <div class="h-60 overflow-hidden relative">
+        <div class="h-60 overflow-hidden relative cursor-zoom-in" onclick="openPreview('Double door fridge', 4800, '4.jpg', 'Modern double door fridge with built-in water dispenser. Spacious interior with frost-free technology for low maintenance.', 'Refrigeration')">
           <img src="4.jpg" id="img-4" class="w-full h-full object-cover transition-transform group-hover:scale-110">
           <div class="absolute top-4 right-4 bg-black text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase">Fridge</div>
+          <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity">
+              <span class="bg-white text-black px-4 py-2 rounded-full text-xs font-bold uppercase shadow-xl">Quick View</span>
+          </div>
         </div>
         <div class="p-6">
           <h4 class="font-bold text-gray-800 text-lg">Double door fridge</h4>
@@ -202,7 +214,7 @@
           <button onclick="addToCart('Double door fridge', 4800, '4.jpg')" class="w-full bg-beeYellow text-black py-4 rounded-2xl font-black hover:bg-black hover:text-white transition-all uppercase text-sm tracking-wider">Add To Cart</button>
         </div>
       </div>
-
+    
     </div>
   </section>
 
@@ -231,9 +243,49 @@
     </div>
   </section>
 
-  <footer class="bg-black py-12 border-t border-white/10 text-center">
-    <p class="text-beeYellow font-black text-xl mb-4 uppercase">Bee Appliances 🐝</p>
-    <p class="text-gray-500 text-sm italic">&copy; 2026 Quality Tested Appliances. Johannesburg, South Africa.</p>
+  <footer class="bg-black pt-16 pb-12 border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid md:grid-cols-3 gap-12 mb-12 items-center text-center md:text-left">
+        
+        <div>
+          <p class="text-beeYellow font-black text-2xl mb-4 uppercase tracking-tighter">Bee Appliances 🐝</p>
+          <p class="text-gray-400 text-sm leading-relaxed max-w-xs mx-auto md:mx-0">
+            Premium, quality-tested appliances at warehouse prices. Visit our showroom in Crown Mines, JHB.
+          </p>
+        </div>
+
+        <div class="space-y-4">
+          <p class="text-white font-bold uppercase text-sm tracking-widest">Join the Hive</p>
+          <p class="text-gray-500 text-xs">Get alerts for new stock and "Bee-grade" deals.</p>
+          <form class="flex gap-2">
+            <input type="email" placeholder="Email Address" class="bg-white/10 border border-white/20 rounded-lg px-4 py-2 text-sm text-white outline-none focus:border-beeYellow flex-1">
+            <button type="submit" class="bg-beeYellow text-black px-4 py-2 rounded-lg font-bold text-xs hover:bg-white transition-colors uppercase">Join</button>
+          </form>
+        </div>
+
+        <div class="flex flex-col items-center md:items-end gap-4">
+          <p class="text-white font-bold uppercase text-sm tracking-widest">Follow the Buzz</p>
+          <div class="flex gap-4">
+            <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-beeYellow hover:bg-beeYellow hover:text-black transition-all">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-beeYellow hover:bg-beeYellow hover:text-black transition-all">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-beeYellow hover:bg-beeYellow hover:text-black transition-all">
+              <i class="fab fa-tiktok"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pt-8 border-t border-white/5 text-center">
+        <p class="text-gray-500 text-[10px] italic uppercase tracking-widest leading-loose">
+          &copy; 2026 Quality Tested Appliances. Johannesburg, South Africa. <br>
+          <span class="opacity-50">Authorized Reseller of Premium Brands</span>
+        </p>
+      </div>
+    </div>
   </footer>
 
   <script src="script.js"></script>
@@ -281,5 +333,24 @@
       </p>
     </div>
   </div>
+  <div id="preview-overlay" onclick="closePreview()" class="fixed inset-0 bg-black/80 z-[120] hidden backdrop-blur-md"></div>
+<div id="preview-modal" class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[95%] max-w-4xl bg-white z-[130] hidden rounded-[2.5rem] overflow-hidden shadow-2xl">
+  <button onclick="closePreview()" class="absolute top-6 right-8 text-4xl font-light text-gray-500 hover:text-black z-10">&times;</button>
+  
+  <div class="grid md:grid-cols-2">
+    <div class="bg-gray-100 flex items-center justify-center p-8">
+      <img id="preview-img" src="" alt="Product" class="max-h-[400px] w-auto object-contain mix-blend-multiply">
+    </div>
+    <div class="p-8 md:p-12 flex flex-col justify-center">
+      <span id="preview-category" class="text-beeYellow font-bold uppercase tracking-widest text-xs mb-2">Category</span>
+      <h2 id="preview-title" class="text-3xl md:text-4xl font-black uppercase mb-4">Product Name</h2>
+      <p id="preview-desc" class="text-gray-600 mb-8 leading-relaxed">Product description goes here...</p>
+      <div class="flex items-center justify-between mb-8">
+        <span id="preview-price" class="text-3xl font-black italic">R0,000</span>
+      </div>
+      <button id="preview-add-btn" class="w-full bg-black text-white font-black py-5 rounded-2xl uppercase hover:bg-beeYellow hover:text-black transition-all shadow-xl">Add to Cart</button>
+    </div>
+  </div>
+</div>
 </body>
 </html>

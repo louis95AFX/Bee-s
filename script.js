@@ -147,3 +147,32 @@ document.addEventListener('keydown', (e) => {
       document.getElementById('auth-overlay').classList.add('hidden');
   }
 });
+function openPreview(name, price, img, desc, category) {
+  const modal = document.getElementById('preview-modal');
+  const overlay = document.getElementById('preview-overlay');
+  
+  // Populate modal data
+  document.getElementById('preview-title').innerText = name;
+  document.getElementById('preview-price').innerText = 'R' + price.toLocaleString();
+  document.getElementById('preview-img').src = img;
+  document.getElementById('preview-desc').innerText = desc;
+  document.getElementById('preview-category').innerText = category;
+  
+  // Update the button in the modal to work
+  const addBtn = document.getElementById('preview-add-btn');
+  addBtn.onclick = () => {
+      addToCart(name, price, img);
+      closePreview();
+  };
+
+  // Show modal
+  modal.classList.remove('hidden');
+  overlay.classList.remove('hidden');
+  document.body.style.overflow = 'hidden'; // Prevent scroll
+}
+
+function closePreview() {
+  document.getElementById('preview-modal').classList.add('hidden');
+  document.getElementById('preview-overlay').classList.add('hidden');
+  document.body.style.overflow = 'auto'; // Restore scroll
+}
