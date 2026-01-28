@@ -113,3 +113,37 @@ function filterProducts(category, clickedBtn) {
     }
   });
 }
+function toggleAuthModal() {
+  const modal = document.getElementById('auth-modal');
+  const overlay = document.getElementById('auth-overlay');
+  
+  if (modal.classList.contains('hidden')) {
+      modal.classList.remove('hidden');
+      overlay.classList.remove('hidden');
+      // Add a small delay for an entry animation if you want one
+  } else {
+      modal.classList.add('hidden');
+      overlay.classList.add('hidden');
+  }
+}
+
+function switchAuth(type) {
+  const loginForm = document.getElementById('login-form');
+  const registerForm = document.getElementById('register-form');
+  
+  if (type === 'register') {
+      loginForm.classList.add('hidden');
+      registerForm.classList.remove('hidden');
+  } else {
+      registerForm.classList.add('hidden');
+      loginForm.classList.remove('hidden');
+  }
+}
+
+// Close modal when pressing ESC key
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+      document.getElementById('auth-modal').classList.add('hidden');
+      document.getElementById('auth-overlay').classList.add('hidden');
+  }
+});

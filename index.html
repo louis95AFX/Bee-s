@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Bee Appliances | Quality Home Appliances JHB</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
   <script>
     tailwind.config = {
@@ -58,6 +59,11 @@
       </nav>
 
       <div class="flex items-center gap-4">
+        <button onclick="toggleAuthModal()" class="text-white hover:text-beeYellow transition-colors flex items-center gap-2 mr-2">
+          <i class="fas fa-user-circle text-2xl"></i>
+          <span class="hidden sm:inline text-xs font-bold uppercase tracking-tighter">Account</span>
+        </button>
+        
         <button onclick="toggleCart()" class="relative bg-beeYellow text-black px-4 py-2 rounded-full font-bold hover:bg-white transition-all flex items-center gap-2" id="cart-btn">
           <i class="fas fa-shopping-cart text-sm"></i>
           <span id="cart-count" class="bg-black text-white text-[10px] px-1.5 py-0.5 rounded-full">0</span>
@@ -188,7 +194,7 @@
       <div class="product-item bg-white rounded-3xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-2xl transition-all group" data-category="cooking">
         <div class="h-60 overflow-hidden relative">
           <img src="4.jpg" id="img-4" class="w-full h-full object-cover transition-transform group-hover:scale-110">
-          <div class="absolute top-4 right-4 bg-black text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase">Stove</div>
+          <div class="absolute top-4 right-4 bg-black text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase">Fridge</div>
         </div>
         <div class="p-6">
           <h4 class="font-bold text-gray-800 text-lg">Double door fridge</h4>
@@ -231,6 +237,49 @@
   </footer>
 
   <script src="script.js"></script>
-
+  <div id="auth-overlay" onclick="toggleAuthModal()" class="fixed inset-0 bg-black/80 z-[100] hidden backdrop-blur-md"></div>
+  <div id="auth-modal" class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] max-w-md bg-white z-[110] hidden rounded-[2.5rem] overflow-hidden shadow-2xl">
+    
+    <button onclick="toggleAuthModal()" class="absolute top-4 right-6 text-2xl font-black text-gray-400 hover:text-black">&times;</button>
+  
+    <div id="login-form" class="p-8 md:p-10">
+      <h2 class="text-3xl font-black uppercase mb-2">Welcome Back <span class="text-beeYellow">🐝</span></h2>
+      <p class="text-gray-500 mb-8 text-sm">Log in to track your appliance orders.</p>
+      
+      <div class="space-y-4">
+        <div class="relative">
+          <i class="fas fa-envelope absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+          <input type="email" placeholder="Email Address" class="w-full p-4 pl-12 rounded-xl bg-gray-100 border-none focus:ring-2 focus:ring-beeYellow outline-none transition-all">
+        </div>
+        <div class="relative">
+          <i class="fas fa-lock absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+          <input type="password" placeholder="Password" class="w-full p-4 pl-12 rounded-xl bg-gray-100 border-none focus:ring-2 focus:ring-beeYellow outline-none transition-all">
+        </div>
+        <button class="w-full bg-black text-white font-black py-4 rounded-xl uppercase hover:bg-beeYellow hover:text-black transition-all">Login to Hive</button>
+      </div>
+      
+      <p class="mt-8 text-center text-sm text-gray-600">
+        New to Bee Appliances? 
+        <button onclick="switchAuth('register')" class="font-black text-black underline underline-offset-4 hover:text-beeYellow">Join the Hive</button>
+      </p>
+    </div>
+  
+    <div id="register-form" class="p-8 md:p-10 hidden">
+      <h2 class="text-3xl font-black uppercase mb-2">Join us <span class="text-beeYellow">🐝</span></h2>
+      <p class="text-gray-500 mb-8 text-sm">Create an account for faster checkout.</p>
+      
+      <div class="space-y-4">
+        <input type="text" placeholder="Full Name" class="w-full p-4 rounded-xl bg-gray-100 border-none focus:ring-2 focus:ring-beeYellow outline-none transition-all">
+        <input type="email" placeholder="Email Address" class="w-full p-4 rounded-xl bg-gray-100 border-none focus:ring-2 focus:ring-beeYellow outline-none transition-all">
+        <input type="password" placeholder="Create Password" class="w-full p-4 rounded-xl bg-gray-100 border-none focus:ring-2 focus:ring-beeYellow outline-none transition-all">
+        <button class="w-full bg-beeYellow text-black font-black py-4 rounded-xl uppercase hover:bg-black hover:text-white transition-all">Create Account</button>
+      </div>
+      
+      <p class="mt-8 text-center text-sm text-gray-600">
+        Already a member? 
+        <button onclick="switchAuth('login')" class="font-black text-black underline underline-offset-4 hover:text-beeYellow">Log In</button>
+      </p>
+    </div>
+  </div>
 </body>
 </html>
