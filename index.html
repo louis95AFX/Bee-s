@@ -237,6 +237,86 @@
     </div>
   </section>
 
+
+  <section id="reviews" class="py-24 bg-white overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <h3 class="text-4xl md:text-5xl font-black uppercase tracking-tighter mb-4">
+          Buzz From <span class="text-beeYellow">The Hive</span>
+        </h3>
+        <p class="text-gray-500 max-w-xl mx-auto">Don't just take our word for it. Here’s what our happy customers have to say about their showroom-quality appliances.</p>
+      </div>
+  
+      <div class="grid md:grid-cols-3 gap-8">
+        
+        <div class="bg-slate-50 p-8 rounded-[2rem] border border-gray-100 hover:shadow-xl transition-all group">
+          <div class="flex text-beeYellow mb-4">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <p class="text-gray-700 italic mb-6">"Got a Samsung Double Door fridge last week. The price was significantly lower than retail, and the delivery to Sandton was same-day. Highly recommended!"</p>
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 bg-beeYellow rounded-full flex items-center justify-center font-black">TM</div>
+            <div>
+              <h4 class="font-bold text-sm">Thabo Mokoena</h4>
+              <span class="text-[10px] uppercase text-green-600 font-bold tracking-widest flex items-center gap-1">
+                <i class="fas fa-check-circle"></i> Verified Buyer
+              </span>
+            </div>
+          </div>
+        </div>
+  
+        <div class="bg-beeBlack text-white p-8 rounded-[2rem] border border-beeYellow/20 hover:scale-[1.02] transition-all relative">
+          <span class="absolute top-6 right-8 text-beeYellow opacity-20 text-6xl font-serif">"</span>
+          <div class="flex text-beeYellow mb-4">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <p class="text-gray-300 italic mb-6">"The LG Washing machine looks brand new. Excellent customer service at the Crown Mines showroom. Will definitely bee back for a microwave soon!"</p>
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 bg-white text-black rounded-full flex items-center justify-center font-black">SJ</div>
+            <div>
+              <h4 class="font-bold text-sm text-beeYellow">Sarah Jacobs</h4>
+              <span class="text-[10px] uppercase text-beeYellow/60 font-bold tracking-widest flex items-center gap-1">
+                <i class="fas fa-check-circle"></i> Verified Buyer
+              </span>
+            </div>
+          </div>
+        </div>
+  
+        <div class="bg-slate-50 p-8 rounded-[2rem] border border-gray-100 hover:shadow-xl transition-all">
+          <div class="flex text-beeYellow mb-4">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <p class="text-gray-700 italic mb-6">"Best appliance deals in JHB. Professional staff and very transparent about the stock. Saved me over R3,000 on my kitchen upgrade."</p>
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 bg-beeYellow rounded-full flex items-center justify-center font-black">RP</div>
+            <div>
+              <h4 class="font-bold text-sm">Ricardo Pillay</h4>
+              <span class="text-[10px] uppercase text-green-600 font-bold tracking-widest flex items-center gap-1">
+                <i class="fas fa-check-circle"></i> Verified Buyer
+              </span>
+            </div>
+          </div>
+        </div>
+  
+      </div>
+      
+      <div class="mt-16 flex flex-wrap justify-center gap-12 border-t border-gray-100 pt-12">
+        <div class="text-center">
+          <p class="text-3xl font-black text-beeBlack">500+</p>
+          <p class="text-xs uppercase text-gray-500 font-bold tracking-widest">Happy Homes</p>
+        </div>
+        <div class="text-center">
+          <p class="text-3xl font-black text-beeBlack">4.9/5</p>
+          <p class="text-xs uppercase text-gray-500 font-bold tracking-widest">Google Rating</p>
+        </div>
+        <div class="text-center">
+          <p class="text-3xl font-black text-beeBlack">100%</p>
+          <p class="text-xs uppercase text-gray-500 font-bold tracking-widest">Quality Tested</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="contact" class="bg-beeBlack text-white py-24 relative">
     <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16">
       <div>
@@ -368,6 +448,103 @@
         <span id="preview-price" class="text-3xl font-black italic">R0,000</span>
       </div>
       <button id="preview-add-btn" class="w-full bg-black text-white font-black py-5 rounded-2xl uppercase hover:bg-beeYellow hover:text-black transition-all shadow-xl">Add to Cart</button>
+    </div>
+  </div>
+</div>
+
+<div id="checkout-overlay" onclick="toggleCheckoutModal()" class="fixed inset-0 bg-black/80 z-[140] hidden backdrop-blur-md"></div>
+<div id="checkout-modal" class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[95%] max-w-lg bg-white z-[150] hidden rounded-[2.5rem] overflow-hidden shadow-2xl">
+  
+  <div id="checkout-step-1" class="p-8 md:p-10">
+    <div class="flex justify-between items-center mb-6">
+      <h2 class="text-2xl font-black uppercase tracking-tighter">Order Details <span class="text-beeYellow">🐝</span></h2>
+      <button onclick="toggleCheckoutModal()" class="text-3xl text-gray-400 hover:text-black">&times;</button>
+    </div>
+
+    <div class="flex gap-4 mb-6">
+      <button onclick="setShippingMethod('pickup')" id="btn-pickup" class="flex-1 py-4 rounded-xl border-2 border-beeYellow bg-beeYellow text-black font-black uppercase text-[10px] md:text-xs transition-all shadow-sm">
+        <i class="fas fa-store mb-1 block md:inline md:mr-1"></i> Pick Up (R0)
+      </button>
+      <button onclick="setShippingMethod('delivery')" id="btn-delivery" class="flex-1 py-4 rounded-xl border-2 border-gray-100 bg-gray-50 text-gray-500 font-black uppercase text-[10px] md:text-xs transition-all">
+        <i class="fas fa-truck mb-1 block md:inline md:mr-1"></i> Delivery (R350)
+      </button>
+    </div>
+
+    <div id="delivery-form" class="hidden space-y-3 mb-6 animate-in fade-in slide-in-from-top-2 duration-300">
+      <h3 class="text-[10px] font-black uppercase tracking-widest text-gray-400 mb-2">Recipient Details</h3>
+      
+      <div class="grid grid-cols-2 gap-3">
+        <input type="text" id="ship-name" placeholder="First Name" class="w-full p-3.5 rounded-xl bg-gray-100 outline-none focus:ring-2 focus:ring-beeYellow text-sm border-none">
+        <input type="text" id="ship-surname" placeholder="Surname" class="w-full p-3.5 rounded-xl bg-gray-100 outline-none focus:ring-2 focus:ring-beeYellow text-sm border-none">
+      </div>
+
+      <div class="grid grid-cols-2 gap-3">
+        <input type="tel" id="ship-phone" placeholder="Phone Number" class="w-full p-3.5 rounded-xl bg-gray-100 outline-none focus:ring-2 focus:ring-beeYellow text-sm border-none">
+        <input type="tel" id="ship-phone-alt" placeholder="Alt. Phone (Optional)" class="w-full p-3.5 rounded-xl bg-gray-100 outline-none focus:ring-2 focus:ring-beeYellow text-sm border-none">
+      </div>
+
+      <textarea id="ship-address" rows="2" placeholder="Full Delivery Address (Street, Suburb, Complex/Unit #)" class="w-full p-3.5 rounded-xl bg-gray-100 outline-none focus:ring-2 focus:ring-beeYellow text-sm border-none resize-none"></textarea>
+    </div>
+
+    <div class="bg-gray-50 p-6 rounded-2xl mb-6 space-y-2 border border-gray-100">
+      <div class="flex justify-between text-xs font-bold text-gray-500 uppercase"><span>Subtotal:</span><span id="summary-subtotal" class="text-gray-900">R0</span></div>
+      <div class="flex justify-between text-xs font-bold text-green-600 uppercase"><span>Delivery Fee:</span><span id="summary-fee">R0</span></div>
+      <div class="flex justify-between text-xl font-black border-t border-dashed border-gray-200 pt-3 mt-2"><span>Total:</span><span id="summary-total" class="text-beeBlack italic">R0</span></div>
+    </div>
+
+    <button onclick="finalizeWhatsAppOrder()" class="w-full bg-black text-white font-black py-5 rounded-2xl uppercase hover:bg-beeYellow hover:text-black transition-all shadow-xl flex items-center justify-center gap-3 group">
+      Proceed to WhatsApp 
+      <i class="fab fa-whatsapp text-xl group-hover:scale-125 transition-transform"></i>
+    </button>
+</div>
+
+  <div id="checkout-step-2" class="hidden p-0 h-[500px] relative bg-[#111] overflow-hidden">
+    <div class="absolute inset-0 opacity-40" 
+         style="background-image: 
+          linear-gradient(#222 1px, transparent 1px), 
+          linear-gradient(90deg, #222 1px, transparent 1px);
+          background-size: 40px 40px;">
+    </div>
+    
+    <svg class="absolute inset-0 w-full h-full" preserveAspectRatio="none">
+      <path d="M -50 400 L 200 350 L 400 420 L 600 300" stroke="#333" stroke-width="25" fill="none" />
+      <path d="M 100 -50 L 150 600" stroke="#333" stroke-width="25" fill="none" />
+      <path id="bee-route" d="M 50 450 L 120 370 L 350 370 L 450 150" 
+            stroke="#FFD400" stroke-width="3" fill="none" stroke-dasharray="8,8" class="opacity-30" />
+    </svg>
+  
+    <div id="bee-driver" class="absolute z-20 transition-all duration-[6000ms] ease-in-out" style="left: 10%; top: 85%;">
+      <div class="relative">
+          <span class="text-4xl filter drop-shadow-[0_0_10px_rgba(255,212,0,0.5)]">🐝</span>
+          <div class="absolute -top-1 -right-1 bg-white text-[8px] px-1 rounded-sm font-bold shadow-sm">Fast</div>
+      </div>
+    </div>
+  
+    <div class="absolute" style="left: 85%; top: 25%;">
+      <div class="relative flex items-center justify-center">
+          <div class="absolute w-8 h-8 bg-beeYellow/20 rounded-full animate-ping"></div>
+          <div class="w-4 h-4 bg-beeYellow rounded-full border-4 border-white shadow-lg"></div>
+      </div>
+    </div>
+  
+    <div class="absolute bottom-0 left-0 right-0 bg-white p-6 rounded-t-[2.5rem] shadow-2xl z-30">
+      <div class="w-12 h-1.5 bg-gray-200 rounded-full mx-auto mb-6"></div>
+      <div class="flex items-center justify-between mb-4">
+          <div class="flex items-center gap-4">
+              <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" class="w-12 h-12 rounded-full bg-gray-100" alt="Driver">
+              <div>
+                  <h4 class="font-black text-sm uppercase">Sipho (Bee-Driver)</h4>
+                  <p class="text-[10px] text-gray-500 font-bold uppercase tracking-widest">⭐ 4.9 • White Nissan NP200</p>
+              </div>
+          </div>
+          <a href="tel:+27637723987" class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-600">
+              <i class="fas fa-phone"></i>
+          </a>
+      </div>
+      <div class="bg-gray-50 rounded-2xl p-4 flex items-center justify-between">
+          <span class="text-xs font-bold text-gray-400 uppercase tracking-tight">Estimated Arrival</span>
+          <span class="text-lg font-black italic">12 - 18 MIN</span>
+      </div>
     </div>
   </div>
 </div>
